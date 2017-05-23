@@ -1,6 +1,6 @@
 # parking-fee-calculator
 
-// run these commands to start the server
+run these commands to start the server
 
 git clone git@github.com:johnnycs/parking-fee-calculator.git
 cd parking-fee-calculator/
