@@ -17,7 +17,6 @@ router.post('/:id/checkin', function(req,res){
 router.get('/:id/checkprice', function(req, res){
   var id = req.params.id;
   var currentTime = req.query.currentTime;
-  console.log(currentTime);
   Carpark.checkprice(id,currentTime,function(err,callback){
 
     if (err){
