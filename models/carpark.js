@@ -45,7 +45,7 @@ exports.checkprice = function(id,currentTime,callback){
     return callback(new Error("Price not in range"))
   }
   else {
-    if (parkingTime[1] > curMall.rounder) {
+    if (min >= curMall.rounder) {
       return callback(null,curMall.fees[hour+1])
     }
     else {
