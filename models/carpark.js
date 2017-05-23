@@ -33,9 +33,6 @@ exports.checkprice = function(id,currentTime,callback){
   hour = parkingTime[0];
   min = parkingTime[1];
 
-  console.log(hour);
-  console.log(min);
-
   if (curMallId !== id) { // unmatch mall id
     return callback(new Error("You have not checked in properly"));
   }
