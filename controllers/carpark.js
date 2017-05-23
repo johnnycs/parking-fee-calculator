@@ -19,7 +19,7 @@ router.get('/:id/checkprice', function(req, res){
   Carpark.checkprice(id,function(err,callback){
 
     if (err){
-      if (err.message === 'You have not checked in properly'){
+      if (err.message == "You have not checked in properly"){
         res.status(503).send(err.message);
       }
       else {
