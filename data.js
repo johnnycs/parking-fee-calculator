@@ -53,7 +53,7 @@ module.exports =
                 340,390,440,490,540,
                 590
             ],
-            rounder:0
+            rounder:1
         }
   ]
 }
