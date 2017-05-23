@@ -5,14 +5,14 @@ var entryTime = null
 // takes in time in ms
 // and return [hr,min]
 cleanTime = function(ms){
-  if (ms < (1000 * 60 * 60 * 24)) {
+  // over the limit
+  if ((ms > (1000 * 60 * 60 * 24))) {
+    return [100,0]
+  }
+  else {
     h = Math.floor((ms/(1000*60*60))%24);
     m = Math.round((ms/(1000*60))%60);
     return [h,m]
-  }
-  else {
-    // over the limit
-    return [100,0]
   }
 };
 
@@ -25,14 +25,17 @@ exports.checkin = function(id,date,callback){
 
 // checkprice takes in mall_id
 // if no error, return parking fee
-exports.checkprice = function(id,callback){
+exports.checkprice = function(id,currentTime,callback){
 
   curMall = allMalls.malls[id-1];
-  curTime = new Date();
+  curTime = new Date(currentTime);
   parkingTime = cleanTime(Math.abs(curTime - entryTime));
   hour = parkingTime[0];
   min = parkingTime[1];
-  
+
+  console.log(hour);
+  console.log(min);
+
   if (curMallId !== id) { // unmatch mall id
     return callback(new Error("You have not checked in properly"));
   }

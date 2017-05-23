@@ -16,7 +16,9 @@ router.post('/:id/checkin', function(req,res){
 
 router.get('/:id/checkprice', function(req, res){
   var id = req.params.id;
-  Carpark.checkprice(id,function(err,callback){
+  var currentTime = req.query.currentTime;
+  console.log(currentTime);
+  Carpark.checkprice(id,currentTime,function(err,callback){
 
     if (err){
       if (err.message == "You have not checked in properly"){
